@@ -1,37 +1,50 @@
-body {
-    background-color: #f0f0f0;
-    font-family : Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5;
-    color:aqua;
-    text-align: left;
-    margin : 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-h1{
-    font-size: 2em;
-    font-weight: 700;
-    line-height: 1.5;
-    color: #333;
-    text-align: center;
+body{
+    background-color: #961212;
+    font-family: Arial, Tahoma, sans-serif;
+    font-display: fallback;
     margin: 0;
-    padding: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
-
-p{
-    font-size: 1em;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #333;
+*{
+    box-sizing: border-box;
     text-align: center;
-    margin: 0;
-    padding: 0;
 }
-img{
-    width: 50%;
-    height: auto;
+.header{
+    border: 2px solid blue;
+    padding: 15px;
+    color: #FFF;
+}
+.flexMenu{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid green;
+    width: 26%;
+    padding: 15px;
+    font-size: 1.01em;
+    float: left;
+    font-style : oblique;
+    font-weight: bold;
+}
+.main{
+    border: 1px solid red;
+    width: 70%;
+    padding: 15px;
+    float:right;
     
+}
+.footer{
+    border: 2px solid blue;
+    padding: 15px;
+    clear: both;
+}
+p.oblique{
+    font-size: 1.2em;
+    font-style : oblique;
+    font-weight: bold;
+    color: #666;
+    margin: 0;
+    padding: 0;
 }
