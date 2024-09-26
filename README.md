@@ -1,4 +1,4 @@
 # webbisovellusprojekti
  
 Testi viesti-
-entäs tää , tää
+entäs tää.
