@@ -6,37 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <script src="assets/script.js" defer> </script>
 </head>
 
 <body>
-    <div class="header">
-    <h1 style="font-family: 'Audiowide', sans-serif;">Portfolio</h1>
-    </div>
+    <div class="grid-container"> 
+        <div class="item1">  
+            <h1 style="font-family: 'Audiowide', sans-serif;">Nettisivu</h1> 
+        </div>
+    
+        <div id="menua" class="item2">
+            <ul>  
+                <li> <a href="#" onclick="pageLoader.loadContent('Yleista.html')" class="link" > Yleistä tietoa </a> </li>
+                <li> <a href="#" onclick="loadCarParksTable()" class="link" > Oulun ydinkeskustan parkkihallit</a></li>
+                <li> <a href="#" onclick="loadJokes()" class="link"> Vitsi </a> </li>
+                <li> <button type="button" onclick="uskallatko.askConfirmation()" class="link">Uskallatko painaa tästä</button> <p id="vastaus"> </p> </li>               
+            </ul>
+                 
+            
+        </div>
+        <div id="main" class="item3">
+            <h2> Tervetuloa sivulleni</h2>
+            <p> Valitse linkki ladataksesi sisältöä minusta</p>
+        </div>
+        <div class="item4">
+            <p> Sivun loppu </p>
+        </div>
+        
+    
+    
+    
 
-    <br>
-
-    <div class="flexMenu">
-    <p>Tervetuloa sivulleni</p>
-    <p>Tervetuloa sivulleni</p>
-    <p>Tervetuloa sivulleni</p>
-    <p>Tervetuloa sivulleni</p>
+    
     </div>
 
     
-    <div class="main"> 
-    <h2> Tervetuloa sivulleni
-    </h2>
-    <p> terve asdmtkk o<br> efomemapfeoomkga</p>
-    <p>Tervetuloa sivulleni</p>
-    <p>Tervetuloa sivulleni</p>
-    <p>Tervetuloa sivulleni</p>
-    <p>Tervetuloa sivulleni</p>
-    <p>Tervetuloa sivulleni</p>
-    <p>Tervetuloa sivulleni</p>
-    </div>
-    <div class="footer">
-    <p> Sivu loppui   </p>
-    </div>
+
 </body>
 
 </html>

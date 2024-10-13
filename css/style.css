@@ -1,50 +1,154 @@
-body{
-    background-color: #961212;
+html, body { 
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    
+}
+body { 
+    background-color: #c1a4a4;
     font-family: Arial, Tahoma, sans-serif;
     font-display: fallback;
     margin: 0;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-*{
-    box-sizing: border-box;
-    text-align: center;
-}
-.header{
-    border: 2px solid blue;
-    padding: 15px;
-    color: #FFF;
-}
-.flexMenu{
-    display: flex;
-    flex-direction: column;
-    border: 2px solid green;
-    width: 26%;
-    padding: 15px;
-    font-size: 1.01em;
-    float: left;
-    font-style : oblique;
-    font-weight: bold;
-}
-.main{
-    border: 1px solid red;
-    width: 70%;
-    padding: 15px;
-    float:right;
+    padding: 1rem; 
     
 }
-.footer{
+
+* { /* Kaikki elementit */
+    text-align: center;
+    box-sizing: border-box; 
+}
+
+.item1 { grid-area: header; } 
+.item2 { grid-area: menua; }
+.item3 { grid-area: main; }
+.item4 { grid-area: footer; }
+
+.grid-container { 
+    display: grid;
+    flex: 1;
+    grid-template-areas: 'header header header'
+                         'menua main main'
+                         'footer footer footer';
+    gap: 10px;
+    padding: 10px;
+    background-color: #33e5659e;
+    max-width: 1000px;
+    min-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px 5px #000;
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        background-color: aqua;
+        grid-template-areas: 
+            'header'
+            'menua'
+            'main'
+            'footer';
+        max-width: 100%;
+    }
+    body {
+        padding: 1rem;
+    }
+    #carParksTable, #jokes{
+        font-size: 3vw; 
+        margin: 10px auto;
+    }
+    
+    th, td {
+        padding: 5px; 
+    }
+
+    .item2 { 
+        width: 100%;
+        padding: 10px 0;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.8); 
+    }
+
+    .main {
+        margin-top: 10px; 
+    }
+}
+
+.header { /* Otsikko */
+    border: 2px solid blue;
+    color: #FFF;
+    font-size: 5vw; 
+}
+
+.grid-container > div { 
+    background-color: #33e5659e;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 4vw; 
+}
+
+.item2 a:hover { /* Hover-efekti */
+    background-color: rgba(59, 22, 66, 0.466);
+}
+
+
+
+.item3 {
+    width: 100%;
+    padding: 20px;
+    overflow-x: auto;
+    overflow-wrap: break-word;    
+}
+
+.item4 { /* Footer */
     border: 2px solid blue;
     padding: 15px;
     clear: both;
+    margin-top: auto;
+    margin-bottom: 1rem;
 }
-p.oblique{
-    font-size: 1.2em;
-    font-style : oblique;
-    font-weight: bold;
-    color: #666;
-    margin: 0;
-    padding: 0;
+
+.item2 li {
+    list-style-type: circle;
+    list-style-position: inside;
+    text-align: left;
+    padding-left: 1vw;
+}
+
+.kuva { 
+    width: 20%;
+    height: auto;
+}
+
+#carParksTable, #jokes{
+    width: 100%; 
+    max-width: 600px; 
+    min-width: 300px; 
+    margin: 20px auto; 
+    border-collapse: collapse; 
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #e598339e;
+}
+
+/* Suuremmille näytöille */
+@media (min-width: 601px) {
+    body {
+        font-size: 16px; 
+    }
+    .header {
+        font-size: 2rem; 
+    }
+    .grid-container > div {
+        font-size: 1.5rem; 
+    }
+    #carParksTable {
+        font-size: 1rem; 
+    }
 }
