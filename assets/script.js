@@ -63,6 +63,7 @@ const pageLoader = new PageLoader('main');
 const uskallatko = new Uskallatko(pageLoader, 'vastaus', 'main');
 
 async function fetchCarParks() {
+    try{
     const response = await fetch('https://api.oulunliikenne.fi/proxy/graphql', {
         method: 'POST',
         headers: {
@@ -72,9 +73,16 @@ async function fetchCarParks() {
             query: '{ carParks { name, maxCapacity, spacesAvailable } }'
         })
     });
+    if (!response.ok) {
+        throw new Error('Virhe haettaessa tietoja' + response.status);
+    }
 
     const data = await response.json();
     return data.data.carParks;
+}   catch (error) {
+    console.error('Virhe haettaessa tietoja:', error.message);
+    throw error;
+}
 }
 
 function populateTable(carParks) {
@@ -99,6 +107,10 @@ function loadCarParksTable() {
             carPark.name === 'Valkea' || carPark.name === 'Autosaari' || carPark.name === 'Pekuri'
             || carPark.name === 'Scandic' || carPark.name === 'Kivisydän' || carPark.name === 'Technopolis'
             || carPark.name === 'Autoheikki');
+
+            if(filteredCarParks.length === 0) {
+                throw new Error('Parkkihallin tietoja ei löytynyt');
+            }
         
         // Luodaan taulukko
         const tableHTML = `
@@ -121,13 +133,24 @@ function loadCarParksTable() {
 
         // Täytetään taulukko tiedoilla
         populateTable(filteredCarParks);
+    }) .catch(error => {
+        document.getElementById('main').innerHTML = '<p style="color: red;">Virhe ladatessa parkkihallien tietoja </p>'; 
     });
 }
 async function fetchJokes() {
-    const response = await fetch('https://v2.jokeapi.dev/joke/Programming');
+    try{
+        const response = await fetch('https://v2.jokeapi.dev/joke/Programming');
+        if (!response.ok) {
+            throw new Error('Virhe haettaessa vitsejä' + response.status);
+    }
     const data = await response.json();
     return data.jokes ? data.jokes : [data];
+} catch (error) {
+    console.error('Virhe haettaessa vitsejä:', error.message);
+    throw error;
 }
+}
+
 function populateJokes(jokes) {
     const mainElement = document.querySelector('#main');
     mainElement.innerHTML = ''; // Tyhjennä main-elementti
@@ -146,5 +169,7 @@ function populateJokes(jokes) {
 function loadJokes() {
     fetchJokes().then(jokes => {
         populateJokes(jokes);
+    }).catch(error => {
+        document.getElementById('main').innerHTML = '<p style="color: red;">Virhe ladatessa vitsejä</p>';
     });
 }

@@ -106,6 +106,9 @@ body {
     margin-top: auto;
     margin-bottom: 1rem;
 }
+.item4 a:hover { /* Hover-efekti */
+    background-color: rgba(59, 22, 66, 0.466);
+}
 
 .item2 li {
     list-style-type: circle;
